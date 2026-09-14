@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id               Int      @id @default(autoincrement())
+  name             String
+  email            String   @unique
+  phone            String   @unique
+  passwordHash     String
+  walletBalanceKobo Int     @default(0)
+  createdAt        DateTime @default(now())
+walletTransactions WalletTransaction[]
+}
+model WalletTransaction {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  type        String
+  amountKobo  Int
+  reference   String   @unique
+  status      String   @default("pending")
+  createdAt   DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
