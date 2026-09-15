@@ -147,9 +147,15 @@ app.get("/api/wallet/verify/:reference", requireAuth, async (req, res) => {
 
     const paidAmount = Number(result.data.amount);
 
-    if (paidAmount !== transaction.amountKobo) {
-      return res.status(400).json({ success: false, message: "Payment amount mismatch" });
-    }
+    if (
+  paidAmount !== transaction.amountKobo ||
+  result.data.currency !== "NGN"
+) {
+  return res.status(400).json({
+    success: false,
+    message: "Payment amount or currency mismatch",
+  });
+}
 
     await prisma.$transaction(async (tx) => {
       await tx.user.update({
