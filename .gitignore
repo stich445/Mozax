@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# Build output
+dist/
+build/
+
+# Local/editor files
+.vscode/
+.idea/
+.DS_Store
+
+# Local authentication/data files
+login.json
+
+# Temporary files
+*.tmp
+*.temp
