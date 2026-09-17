@@ -1,1 +1,1 @@
-# Naija-pay
+# Mozax
