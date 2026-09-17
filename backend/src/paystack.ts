@@ -20,6 +20,7 @@ export async function initializePaystackTransaction(
       amount: amountKobo,
       reference,
       currency: "NGN",
+      callback_url: process.env.PAYSTACK_CALLBACK_URL,
     },
     {
       headers: {
