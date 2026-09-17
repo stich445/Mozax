@@ -18,7 +18,7 @@ app.use("/api/auth", authRouter);
 app.get("/api/health", (_req, res) => {
   res.json({
     success: true,
-    message: "Naija-pay backend is running"
+    message: "MOZAX backend is running"
   });
 });
 
@@ -176,7 +176,7 @@ app.get("/api/wallet/verify/:reference", requireAuth, async (req, res) => {
   }
 });
 app.listen(PORT, () => {
-  console.log(`Naija-pay server running on port ${PORT}`);
+  console.log(`MOZAX server running on port ${PORT}`);
 });
 
 app.post("/api/wallet/fund/mock", requireAuth, async (req, res) => {
